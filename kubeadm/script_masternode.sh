@@ -99,3 +99,5 @@ Initialised the control plane.
 # Initialize Kubernetes control plane by running the below commond as root user.
 sudo kubeadm init
 
+#exit as root user
+sudo su - ubuntu
