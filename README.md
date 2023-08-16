@@ -49,7 +49,7 @@ net.ipv4.ip_forward                 = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 EOF
 
-# Apply sysctl params without reboot
+# Apply sysctl params without reboot.
 sudo sysctl --system
 # Configure containerd:
 sudo mkdir -p /etc/containerd
@@ -58,7 +58,7 @@ containerd config default | sudo tee /etc/containerd/config.toml
 sudo systemctl restart containerd
 # If you get error releated to kubernetes-cni if alreay exists install with out kubernetes-cni
 apt-get install -y kubelet kubeadm kubectl 
-# Enable and start kubelet service
+# Enable and start kubelet service.
 sudo systemctl daemon-reload 
 sudo systemctl start kubelet 
 sudo systemctl enable kubelet.service
@@ -80,7 +80,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ## To verify, if kubectl is working or not, run the following command.
 kubectl get pods -A
 ```sh
-#deploy the network plugin - weave network
+#deploy the network plugin - weave network.
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 kubectl get pods -A
 kubectl get node
